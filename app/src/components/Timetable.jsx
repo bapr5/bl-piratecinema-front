@@ -20,7 +20,7 @@ export default function Timetable({ TimetableEntries }) {
             <td>{index + 1}</td>
             <td><a href={makeUrl(element?.link)}>{element?.name}</a></td>
             <td>
-              <button onClick={copyToClipboard(makeUrl(element?.link))}>📋</button>
+              <button onClick={()=>copyToClipboard(makeUrl(element?.link))}>📋</button>
             </td>
           </tr>
         ))}
