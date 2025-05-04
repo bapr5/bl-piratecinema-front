@@ -1,13 +1,16 @@
 import React from "react";
+import { makeUrl } from "@/utils/utils.mjs";   
 
 export default function Timetable({ TimetableEntries }) {
-  console.log(TimetableEntries);
+    function copyToClipboard(text) {
+        navigator.clipboard.writeText(text)
+    }
   return (
     <table className="table-auto w-full">
       <thead>
         <tr>
           <th>#</th>
-          <th>Название</th>
+          <th>Файл</th>
           <th>Ссылка</th>
         </tr>
       </thead>
@@ -15,9 +18,9 @@ export default function Timetable({ TimetableEntries }) {
         {TimetableEntries.map((element, index) => (
           <tr key={index}>
             <td>{index + 1}</td>
-            <td>{element?.name}</td>
+            <td><a href={makeUrl(element?.link)}>{element?.name}</a></td>
             <td>
-              <>Ligma</>
+              <button onClick={copyToClipboard(makeUrl(element?.link))}>📋</button>
             </td>
           </tr>
         ))}

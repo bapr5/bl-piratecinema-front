@@ -1,10 +1,10 @@
 import axios from "axios";
 
-const API_ADDR = process.env.API_ADDR || "127.0.0.1";
-const API_PORT = process.env.API_PORT || "3001";
+export const API_ADDR = process.env.API_ADDR || "127.0.0.1";
+export const API_PORT = process.env.API_PORT || "3001";
 
 const $host = axios.create({
-  baseURL: `http://${API_ADDR}:${API_PORT}/`,
+  baseURL: `https://${API_ADDR}:${API_PORT}/`,
   headers: {
     "Content-Type": "application/json",
   },
